@@ -1,0 +1,45 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+plugins {
+//    id 'java'
+    id 'io.spring.dependency-management'
+}
+
+group 'com'
+version '1.0-SNAPSHOT'
+
+dependencyManagement {
+    imports {
+        mavenBom SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile group: 'org.hibernate', name: 'hibernate-core'
+//    compile group: 'org.hibernate', name: 'hibernate-envers', version: '5.3.7.Final'
+
+    compile group: 'org.springframework', name: 'spring-core'
+    compile group: 'org.springframework', name: 'spring-beans'
+    compile group: 'org.springframework', name: 'spring-test'
+    compile group: 'org.springframework', name: 'spring-context'
+    compile group: 'org.springframework', name: 'spring-context-support'
+    compile group: 'org.springframework', name: 'spring-jdbc'
+    compile group: 'org.springframework', name: 'spring-tx'
+
+    compile group: 'org.springframework', name: 'spring-orm'
+
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.2'
+
+    compile group: 'org.liquibase', name: 'liquibase-core'
+
+    testCompile group: 'junit', name: 'junit'
+    testCompile group: 'org.mockito', name: 'mockito-core'
+}

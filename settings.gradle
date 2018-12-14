@@ -1,0 +1,5 @@
+rootProject.name = 'task4-web-tablets'
+include 'report'
+include 'entity'
+include 'front'
+include 'web'

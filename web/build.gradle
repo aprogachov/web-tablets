@@ -1,0 +1,39 @@
+import org.springframework.boot.gradle.plugin.SpringBootPlugin
+
+plugins {
+//    id 'java'
+    id 'io.spring.dependency-management'
+}
+
+group 'com'
+version '1.0-SNAPSHOT'
+
+dependencyManagement {
+    imports {
+        mavenBom SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile project(":entity")
+    compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.6'
+
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-test'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-rest'
+
+    compile group: 'org.springframework.data', name: 'spring-data-jpa'
+
+    testCompile group: 'com.h2database', name: 'h2'
+}
